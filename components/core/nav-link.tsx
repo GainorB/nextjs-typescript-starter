@@ -13,6 +13,7 @@ import styled from 'styled-components';
 interface NavLinkProps {
   href: string;
   children: React.ReactNode;
+  isExternal?: boolean;
 }
 
 interface StyledNavLinkProps {
@@ -24,14 +25,16 @@ const StyledNavLink = styled.a<StyledNavLinkProps>`
   text-decoration: ${({isActive}) => (isActive ? 'underline' : 'none')};
 `;
 
-export const NavLink: React.FC<NavLinkProps> = ({href, children}): JSX.Element => {
+export const NavLink: React.FC<NavLinkProps> = ({href, isExternal, children}): JSX.Element => {
   const router = useRouter();
   const isActive = router.pathname === href;
 
   return (
-    <NextLink href={href}>
-      <StyledNavLink isActive={isActive}>{children}</StyledNavLink>
-    </NextLink>
+    <StyledNavLink isActive={isActive}>
+      <NextLink href={href} isExternal={isExternal}>
+        {children}
+      </NextLink>
+    </StyledNavLink>
   );
 };
 

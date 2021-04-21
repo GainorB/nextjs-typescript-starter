@@ -16,7 +16,7 @@ Every page should import Head, to be able to set meta data per page.
 
 ```javascript
 import React from 'react';
-import {NextPage} from 'next';
+import {GetServerSideProps, NextPage} from 'next';
 import Head from '../components/core/head';
 import {Page} from '../components/layouts/containers';
 
@@ -33,9 +33,11 @@ const Index: NextPage<IndexPageProps> = ({message}) => {
   );
 };
 
-Index.getInitialProps = async () => {
+export const getServerSideProps: GetServerSideProps = async context => {
   return {
-    message: 'Hello World',
+    props: {
+      message: 'Hello World',
+    },
   };
 };
 

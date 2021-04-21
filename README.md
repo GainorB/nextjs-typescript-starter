@@ -2,13 +2,12 @@
 
 ## Tech Stack
 
-1. [NextJS](https://nextjs.org/) v9.3.0
+1. [NextJS](https://nextjs.org/) v^10.1.3
 2. [ReactJs](https://reactjs.org/) v16.8.6
 3. [Typescript](https://www.typescriptlang.org/) v3.8.2
 4. [StyledComponents](https://styled-components.com/) v5.0.1
-5. [Redux](https://redux.js.org/) v4.0.5
-6. [Yarn Package Manager](https://yarnpkg.com/)
-7. Node version 12.x,
+5. [Yarn Package Manager](https://yarnpkg.com/)
+6. Node version 12.x,
    [(Use NVM to manage node versions)](https://github.com/nvm-sh/nvm/blob/master/README.md)
 
 ## Install

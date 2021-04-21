@@ -65,7 +65,7 @@ const Head: React.FC<HeadProps> = ({
     <meta charSet="UTF-8" />
     <meta
       name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
     {!isIndexed && <meta name="robots" content="noindex" />}
     <title>{formatTitle(title, titleDelimiter, titlePosition)}</title>

@@ -15,6 +15,10 @@ interface NextLinkProps {
   target?: string;
   prefetch?: boolean; // Prefetch the page in the background
   replace?: boolean; // Replace the current history state instead of adding a new url into the stack
+  isExternal?: boolean; // Does the link navigate outside this app?
+  ariaLabel?: string;
+  ariaLabelledby?: string;
+  ariaHidden?: boolean;
 }
 
 const StyledAnchor = styled.a`
@@ -27,7 +31,8 @@ const StyledAnchor = styled.a`
   }
 `;
 
-const isAbsoluteUrl = (url: string): boolean => url.includes('://') || url.includes('//') || url.includes('mailto');
+const isAbsoluteUrl = (url: string): boolean =>
+  url.includes('://') || url.includes('//') || url.includes('mailto');
 
 export const NextLink: React.FC<NextLinkProps> = ({
   href,
@@ -37,19 +42,45 @@ export const NextLink: React.FC<NextLinkProps> = ({
   target = '_blank',
   prefetch = true,
   replace = false,
+  isExternal = false,
+  ariaLabel,
+  ariaLabelledby,
+  ariaHidden,
   ...rest
 }) => {
-  if (isAbsoluteUrl(href)) {
+  if (isAbsoluteUrl(href) || isExternal) {
     return (
-      <StyledAnchor href={href} target={target} rel="noopener noreferrer" {...rest}>
+      <StyledAnchor
+        href={href}
+        target={target}
+        rel="noopener noreferrer"
+        aria-labelledby={ariaLabelledby}
+        aria-label={ariaLabel}
+        aria-hidden={ariaHidden}
+        {...rest}
+      >
         {children}
       </StyledAnchor>
     );
   }
 
   return (
-    <Link href={href} as={as} prefetch={prefetch} replace={replace} scroll={scroll} {...rest} passHref>
-      <StyledAnchor>{children}</StyledAnchor>
+    <Link
+      href={href}
+      as={as}
+      prefetch={prefetch}
+      replace={replace}
+      scroll={scroll}
+      passHref
+      {...rest}
+    >
+      <StyledAnchor
+        aria-labelledby={ariaLabelledby}
+        aria-label={ariaLabel}
+        aria-hidden={ariaHidden}
+      >
+        {children}
+      </StyledAnchor>
     </Link>
   );
 };
