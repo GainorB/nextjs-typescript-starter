@@ -1,9 +1,6 @@
 import React from 'react';
 import {NextPageContext} from 'next';
 import {AppProps} from 'next/app';
-import {Provider} from 'react-redux';
-import withRedux from 'next-redux-wrapper';
-import {initStore} from '../store';
 
 // GLOBAL COMPONENTS
 import DefaultHead from '../components/core/head';
@@ -34,13 +31,11 @@ const GlobalLayout = ({children}: {children: React.ReactNode}) => (
   </AppWrapper>
 );
 
-const Application = ({Component, pageProps, store}: Props) => (
+const Application = ({Component, pageProps}: Props) => (
   <ThemeProvider theme={theme}>
-    <Provider store={store}>
-      <GlobalLayout>
-        <Component {...pageProps} />
-      </GlobalLayout>
-    </Provider>
+    <GlobalLayout>
+      <Component {...pageProps} />
+    </GlobalLayout>
   </ThemeProvider>
 );
 
@@ -50,4 +45,4 @@ Application.getInitialProps = async ({Component, ctx}: Props) => {
   };
 };
 
-export default withRedux(initStore)(Application);
+export default Application
