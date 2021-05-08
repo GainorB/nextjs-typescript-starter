@@ -13,7 +13,7 @@
 ## Install
 
 ```bash
-git clone git@github.com:bighuman/nextjs-typescript.git name-of-folder
+git clone git@github.com:GainorB/nextjs-typescript.git name-of-folder
 cd name-of-folder
 yarn install
 ```
