@@ -1,21 +1,17 @@
 import React from 'react';
 import {NextPageContext} from 'next';
 import {AppProps} from 'next/app';
-
-// GLOBAL COMPONENTS
-import DefaultHead from '../src/components/core/head';
-import Header from '../src/components/header';
-import Footer from '../src/components/footer';
-import {AppWrapper} from '../src/components/layouts/wrappers';
-import {AppContainer, Children} from '../src/components/layouts/containers';
-
-// THEME
-import {theme} from '../src/theme/theme';
-import {ThemeProvider} from '../src/theme';
-import {GlobalStyle} from '../src/theme/global';
+import {ThemeProvider, GlobalStyle, theme} from '../src/theme';
+import {
+  AppWrapper,
+  Header,
+  AppContainer,
+  Footer,
+  Children,
+  Head as DefaultHead,
+} from '../src/components';
 
 interface Props extends AppProps {
-  store: any;
   ctx: NextPageContext;
 }
 
@@ -45,4 +41,4 @@ Application.getInitialProps = async ({Component, ctx}: Props) => {
   };
 };
 
-export default Application
+export default Application;

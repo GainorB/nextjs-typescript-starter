@@ -51,7 +51,7 @@ const formatTitle = (
   }
 };
 
-const Head: React.FC<HeadProps> = ({
+export const Head: React.FC<HeadProps> = ({
   title,
   description,
   image,
@@ -63,10 +63,7 @@ const Head: React.FC<HeadProps> = ({
 }): JSX.Element => (
   <NextHead>
     <meta charSet="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     {!isIndexed && <meta name="robots" content="noindex" />}
     <title>{formatTitle(title, titleDelimiter, titlePosition)}</title>
     <meta name="og:title" content={formatTitle(title, titleDelimiter, titlePosition)} />
