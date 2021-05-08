@@ -3,16 +3,16 @@ import {NextPageContext} from 'next';
 import {AppProps} from 'next/app';
 
 // GLOBAL COMPONENTS
-import DefaultHead from '../components/core/head';
-import Header from '../components/header';
-import Footer from '../components/footer';
-import {AppWrapper} from '../components/layouts/wrappers';
-import {AppContainer, Children} from '../components/layouts/containers';
+import DefaultHead from '../src/components/core/head';
+import Header from '../src/components/header';
+import Footer from '../src/components/footer';
+import {AppWrapper} from '../src/components/layouts/wrappers';
+import {AppContainer, Children} from '../src/components/layouts/containers';
 
 // THEME
-import {theme} from '../theme/theme';
-import {ThemeProvider} from '../theme';
-import {GlobalStyle} from '../theme/global';
+import {theme} from '../src/theme/theme';
+import {ThemeProvider} from '../src/theme';
+import {GlobalStyle} from '../src/theme/global';
 
 interface Props extends AppProps {
   store: any;

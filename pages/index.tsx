@@ -1,7 +1,7 @@
 import React from 'react';
 import {GetServerSideProps, NextPage} from 'next';
-import Head from '../components/core/head';
-import {Page} from '../components/layouts/containers';
+import Head from '../src/components/core/head';
+import {Page} from '../src/components/layouts/containers';
 
 interface IndexPageProps {
   message?: string;
