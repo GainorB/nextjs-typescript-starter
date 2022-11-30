@@ -1,6 +1,7 @@
 import {css} from 'styled-components';
 
 const button = css`
+  cursor: pointer;
   appearance: none;
   border: none;
   background: none;
@@ -9,7 +10,6 @@ const button = css`
   padding: 0;
   margin: 0;
 
-  cursor: pointer;
   &[disabled] {
     opacity: 0.5;
   }

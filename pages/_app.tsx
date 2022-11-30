@@ -1,7 +1,9 @@
 import React from 'react';
 import {NextPageContext} from 'next';
 import {AppProps} from 'next/app';
-import {ThemeProvider, GlobalStyle, theme} from '../src/theme';
+import {ThemeProvider} from 'styled-components'
+import { GlobalStyle} from '../src/theme/global';
+import { theme} from '../src/theme/theme';
 import {
   AppWrapper,
   Header,
